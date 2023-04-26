@@ -9,8 +9,7 @@ function getParams() {
         params[p[0]] = p[1];
     }
 
-    document.getElementById("site").innerText = `You will be redirected to ${params.url} soon!`;
-
+    document.getElementById("site").innerHTML = `<p id="site">You will be redirected to ${params.url}... Not working? <a href="${params.url}">Click here.</a></p>`
     setTimeout(() => {
         if (params.time > 0) window.location.href = params.url || window.location.href;
     }, params.time * 1000 || 1);
