@@ -1,6 +1,4 @@
 function getParams() {
-    const time = 0;
-    
     var params = {},
         pairs = document.URL.split('?')
             .pop()
@@ -14,8 +12,8 @@ function getParams() {
     document.getElementById("site").innerText = `You will be redirected to ${params.url} soon!`;
 
     setTimeout(() => {
-        window.location.href = params.url || window.location.href;
-    }, params.time * 1000 || time * 1000);
+        if (params.time > 0) window.location.href = params.url || window.location.href;
+    }, params.time * 1000 || 1);
 
     return params;
 }
